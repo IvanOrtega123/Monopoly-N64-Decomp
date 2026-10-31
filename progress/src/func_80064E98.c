@@ -1,0 +1,27 @@
+void func_80089500(void *, s32, s32);
+s32 func_800895D0(void);
+s32 func_80064DDC(s32, s32, s32);
+
+s32 func_80064E98(s32 arg0, s32 arg1, s32 *arg2) {
+    s32 i;
+    s32 count;
+    s32 r;
+    u8 buf[0x28];
+
+    count = 0;
+    func_80089500(buf, 0, 0x28);
+    for (i = 0; i < 0x28; i++) {
+        do {
+            r = (s32)((f32)func_800895D0() / 32768.0 * 40.0);
+        } while (buf[r] != 0);
+        buf[r] = 1;
+        if ((u16)(((SBoardSquareArr *)arg0)->items[r].unk2 & 1)) {
+            if (((SBoardSquareArr *)arg0)->items[r].unk18 != arg1) {
+                if (func_80064DDC(arg0, r, arg1) & 0xFF) {
+                    arg2[count++] = r;
+                }
+            }
+        }
+    }
+    return count;
+}

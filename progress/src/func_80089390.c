@@ -1,0 +1,1 @@
+void *func_80089390(u8 *dst,u8 *src,u32 n){u8*d=dst+n;u8*s=src+n;u32 i;if(((s-d)&3)!=0){while(n--){--d;--s;*d=*s;}}else if(n!=0){if((u32)d&1){--d;--s;*d=*s;--n;}i=n>>2;if(n>=2){if((u32)d&2){d-=2;s-=2;*(u16*)d=*(u16*)s;n-=2;i=n>>2;}}while(i--){d-=4;s-=4;*(u32*)d=*(u32*)s;}if(n&2){d-=2;s-=2;*(u16*)d=*(u16*)s;}if(n&1){--d;--s;*d=*s;}}return dst;}
