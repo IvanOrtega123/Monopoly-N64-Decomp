@@ -44,7 +44,7 @@ void *func_8003DD44(void **arg0, u8 arg1, u16 arg2, u16 arg3, u16 arg4, u16 arg5
     sp1C->unk44 = arg12;
     sp1C->unk14 = arg13;
     sp1C->prev = *arg0;
-    if (sp1C->prev != NULL) {
+    if (sp1C->prev != 0) {
         sp1C->prev->next = sp1C;
     }
     sp1C->next = 0;

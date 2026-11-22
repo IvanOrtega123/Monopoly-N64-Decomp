@@ -1,30 +1,30 @@
 typedef struct S2CE20Dst {
-    u8 pad00[0x58];
-    u8 unk58[0x24];
-    s32 unk7C;
-    s32 unk80;
-    s32 unk84;
-    s32 unk88;
-    u8 pad8C[4];
-    s32 unk90;
-    s32 unk94;
-    s32 unk98[2];
-    s32 unkA0[2];
-    s32 unkA8;
+    /* 0x00 */ u8 pad00[0x58];
+    /* 0x58 */ u8 unk58[0x24];
+    /* 0x7C */ s32 unk7C;
+    /* 0x80 */ s32 unk80;
+    /* 0x84 */ s32 unk84;
+    /* 0x88 */ s32 unk88;
+    /* 0x8C */ u8 pad8C[4];
+    /* 0x90 */ s32 unk90;
+    /* 0x94 */ s32 unk94;
+    /* 0x98 */ s32 unk98[2];
+    /* 0xA0 */ s32 unkA0[2];
+    /* 0xA8 */ s32 unkA8;
 } S2CE20Dst;
 
 typedef struct S2CE20Src {
-    u8 pad00[8];
-    u8 unk08[0x24];
-    u8 pad2C[2];
-    u16 unk2E;
-    s32 unk30;
-    s32 unk34;
-    s32 unk38;
-    u8 unk3C[8];
-    u8 unk44[8];
-    u8 pad4C[8];
-    s32 unk54;
+    /* 0x00 */ u8 pad00[8];
+    /* 0x08 */ u8 unk08[0x24];
+    /* 0x2C */ u8 pad2C[2];
+    /* 0x2E */ u16 unk2E;
+    /* 0x30 */ s32 unk30;
+    /* 0x34 */ s32 unk34;
+    /* 0x38 */ s32 unk38;
+    /* 0x3C */ u8 unk3C[8];
+    /* 0x44 */ u8 unk44[8];
+    /* 0x4C */ u8 pad4C[8];
+    /* 0x54 */ s32 unk54;
 } S2CE20Src;
 
 S2CE20Dst *func_8002CD7C(s32, s32);

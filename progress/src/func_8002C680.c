@@ -1,20 +1,20 @@
 typedef struct S2C680In {
-    /* 0x00 */ u8 pad0[0x20];
-    /* 0x20 */ u16 unk20;
-    /* 0x22 */ u16 unk22;
-    /* 0x24 */ u16 unk24;
-    /* 0x26 */ u16 unk26;
+    u8 pad0[0x20];
+    u16 unk20;
+    u16 unk22;
+    u16 unk24;
+    u16 unk26;
 } S2C680In;
 
 typedef struct S2C680Out {
-    /* 0x00 */ void *unk0;
-    /* 0x04 */ s32 unk4;
-    /* 0x08 */ void *unk8;
-    /* 0x0C */ s32 unkC;
-    /* 0x10 */ void *unk10;
-    /* 0x14 */ s32 unk14;
-    /* 0x18 */ void *unk18;
-    /* 0x1C */ s32 unk1C;
+    void *unk0;
+    s32 unk4;
+    void *unk8;
+    s32 unkC;
+    void *unk10;
+    s32 unk14;
+    void *unk18;
+    s32 unk1C;
 } S2C680Out;
 
 void *heap_alloc(s32);

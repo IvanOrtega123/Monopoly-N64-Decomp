@@ -5,7 +5,6 @@ typedef struct SBits69070 {
     /* 0x02 */ u16 pad : 1;
     /* 0x04 */ u8 pad4[0x18];
 } SBits69070;
-
 typedef struct SArrBits69070 {
     SBits69070 items[1];
 } SArrBits69070;

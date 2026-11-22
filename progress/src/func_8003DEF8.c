@@ -1,5 +1,3 @@
-void heap_free(void *);
-
 typedef struct SNode3DEF8 {
     /* 0x00 */ s32 unk00;
     /* 0x04 */ s32 unk04;
@@ -11,9 +9,11 @@ typedef struct SNode3DEF8 {
     /* 0x34 */ struct SNode3DEF8 *unk34;
 } SNode3DEF8;
 
-void *func_8003DEF8(SNode3DEF8 *arg0, SNode3DEF8 **arg1) {
-    SNode3DEF8 *sp10;
-    SNode3DEF8 *sp14;
+void heap_free(void *);
+
+struct SNode3DEF8 *func_8003DEF8(struct SNode3DEF8 *arg0, struct SNode3DEF8 **arg1) {
+    struct SNode3DEF8 *sp10;
+    struct SNode3DEF8 *sp14;
 
     sp10 = arg0->unk30;
     sp14 = arg0->unk34;

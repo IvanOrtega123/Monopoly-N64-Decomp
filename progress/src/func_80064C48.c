@@ -1,7 +1,8 @@
-s32 func_800680BC(void *, s32, s32);
 void func_80089500(void *, s32, s32);
 s32 func_800895D0(void);
-extern s32 D_803276D8[40];
+s32 func_800680BC(s32, s32, s32);
+
+extern s32 D_803276D8[];
 
 s32 func_80064C48(s32 arg0, s32 arg1) {
     s32 i;

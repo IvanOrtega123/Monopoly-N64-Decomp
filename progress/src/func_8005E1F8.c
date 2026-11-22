@@ -1,8 +1,8 @@
-u8 func_80060738(s32, s32, s32);
 u8 func_8005E064(s32, STurnRec5E664 *, u8);
+u8 func_80060738(s32, s32, s32);
+s32 func_80060B58(s32, s32);
 s32 func_8005D764(s32);
 void func_8005D7BC(s32);
-s32 func_80060B58(s32, s32);
 void func_800800DC(s32, s32, s32);
 
 u8 func_8005E1F8(s32 arg0, STurnRec5E664 *arg1, u8 arg2) {
@@ -17,20 +17,20 @@ u8 func_8005E1F8(s32 arg0, STurnRec5E664 *arg1, u8 arg2) {
     sp14 = func_8005D764(arg0);
 loop:
     if (func_80060738(arg0, arg1->unk00, arg1->unk19 - 1)) {
-        goto out;
+        goto endloop;
     }
-    if (func_8005E064(arg0, arg1, arg2) == 0) {
+    if (!func_8005E064(arg0, arg1, arg2)) {
         sp18 = 0;
-        goto out;
+        goto endloop;
     }
     sp1C = func_80060B58(arg0, arg1->unk00);
     if (sp1C == -1) {
         sp18 = 0;
-        goto out;
+        goto endloop;
     }
     arg1 = (STurnRec5E664 *)(arg0 + sp1C * 0x1C);
     goto loop;
-out:
+endloop:
     if (sp18 == 0) {
         func_800800DC(arg0, sp14, 0x560);
     } else {

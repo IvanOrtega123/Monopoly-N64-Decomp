@@ -13,8 +13,8 @@ extern s8 D_80324C59;
 extern s8 D_80324C5A;
 extern s8 D_80324D98[];
 typedef struct STurn52 {
-    /* 0x00 */ s8 unk0;
-    /* 0x01 */ u8 pad[0x13];
+    s8 unk0;
+    u8 pad[0x13];
 } STurn52;
 extern STurn52 D_80324B52[];
 
@@ -36,13 +36,13 @@ s32 func_8005C410(void) {
     if (D_80091F7C & 8) {
         D_80096D58 = -1;
     } else {
-        D_80096D58 = 0xFF0000FF;
+        D_80096D58 = (s32)0xFF0000FF;
     }
-    if ((u16)(sp10 & 0x8000) != 0) {
+    if ((sp10 & 0x8000) & 0xFFFF) {
         D_80096D58 = -1;
         return 1;
     }
-    if ((u16)(sp10 & 0x4000) != 0) {
+    if ((sp10 & 0x4000) & 0xFFFF) {
         D_80096D58 = -1;
         return 0;
     }

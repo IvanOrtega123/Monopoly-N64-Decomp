@@ -1,23 +1,54 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -O0 -G0 -mips3 -mgp32 -mfp32, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+s32 func_8005EBE4(s32 arg0, s16 *arg1) {
+    s32 sp0 = 0;
+    for (;;) {
+        if (arg1[sp0] == -1) {
+            return 0;
+        }
+        sp0++;
+        if (arg1[sp0 - 1] == arg0) {
+            return 1;
+        }
+    }
+}
 
-s32 func_8005DE44(M2C_UNK *, s32, M2C_UNK);         /* extern */
 extern s32 D_80300210;
 extern s32 D_803246D0;
-extern M2C_UNK D_803246E0;
+extern s32 D_80324B40[];
+extern s32 D_80324B44[];
+
+s32 func_80052F88(void) {
+    if (D_80300210 < 0) return 1;
+    if ((D_80324B40[D_80300210 * 5] & 2) == 0) return 1;
+    if (D_80324B44[D_80300210 * 5] < D_803246D0) return 1;
+    return 0;
+}
+
+extern s32 func_8005DE44(s32 *, s32, s32);
+extern s32 D_803246E0;
 
 s32 func_80052284(void) {
     D_803246D0 = func_8005DE44(&D_803246E0, D_80300210, 1) / 10;
+    return 0;
+}
+
+extern s32 func_80068C60(s32, s32);
+extern s32 func_800896C0(s32 *, s32);
+extern s32 D_80300BB0;
+extern s32 D_80301320;
+extern s8 D_80324B95;
+extern s16 D_80324B90;
+extern s16 D_80324B92;
+extern s32 D_80096BD8;
+extern s32 D_80096BDC;
+
+s32 func_80050DEC(void) {
+    func_800896C0(&D_80300BB0, D_80301320);
+    if ((s16)D_80324B95 == D_80324B90) {
+        func_80068C60(0, D_80096BD8);
+        D_80324B90 = -1;
+    } else if ((s16)D_80324B95 == D_80324B92) {
+        func_80068C60(1, D_80096BDC);
+        D_80324B92 = -1;
+    }
     return 0;
 }

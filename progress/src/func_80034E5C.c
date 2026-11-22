@@ -1,4 +1,36 @@
+extern u8 D_803005F0[];
 extern u8 D_8030059A;
+extern u8 D_80300590[];
+extern u8 D_800952A0[];
+extern u8 D_802AF1A0[];
+
+typedef struct SRec80036A50 {
+    /* 0x00 */ u16 unk0;
+} SRec80036A50;
+
+extern SRec80036A50 D_8032820E[];
+void func_80033C38(u16);
+
+s32 func_80038994(s32 arg0, u8 arg1) {
+    if (arg1 != 0) {
+        if (D_803005F0[arg0] == 1) {
+            return 1;
+        }
+    } else {
+        if (D_803005F0[arg0] == 2) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void func_80036A50(u16 arg0) {
+    func_80033C38(D_8032820E[arg0].unk0);
+}
+
+void func_8003523C(u16 arg0, s16 arg1) {
+    D_80300590[arg1] = D_80300590[arg1] & ~D_800952A0[D_802AF1A0[arg0]];
+}
 
 s32 func_80034E5C(s32 arg0) {
     if ((u8)(D_8030059A & 0x10) != 0) {
@@ -13,32 +45,4 @@ s32 func_80034E5C(s32 arg0) {
         }
     }
     return 4;
-}
-
-typedef struct S2D428Sub {
-    s32 unk0;
-    s32 unk4;
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-} S2D428Sub;
-
-void heap_free(void *);
-
-void func_8002D428(s32 *arg0, s32 arg1) {
-    S2D428Sub *sp10;
-    S2D428Sub *sp14;
-
-    if (arg1 == 1) {
-        sp14 = (S2D428Sub *)(*arg0 + 0x18);
-        sp10 = (S2D428Sub *)((u8 *)arg0 + 0x18);
-        sp14->unk14 = 0;
-        heap_free((void *)sp10->unk14);
-        heap_free((void *)sp10->unk4);
-        heap_free((void *)sp10->unk8);
-        sp10->unk14 = 0;
-        sp10->unk4 = 0;
-        sp10->unk8 = 0;
-    }
 }

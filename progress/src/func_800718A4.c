@@ -1,20 +1,31 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -O0 -G0 -mips3 -mgp32 -mfp32, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
-M2C_UNK func_80080440(M2C_UNK *, M2C_UNK, M2C_UNK); /* extern */
-extern M2C_UNK D_80357280;
+/* identical to func_8006FCF0 (matched), with its names changed by decompdecomp */
+extern u8 D_80357280[];
+s32 func_80080440(void *, s32, s32);
 
 void func_800718A4(void) {
-    func_80080440(&D_80357280, 0, 1);
+    func_80080440(D_80357280, 0, 1);
+}
+
+u8 func_80071170(void);
+s32 func_80071730(void);
+void func_8006FE40(void);
+void func_800702A0(void);
+
+u8 func_8006FCA0(void) {
+    u8 x = func_80071170();
+    func_80071730();
+    func_8006FE40();
+    func_800702A0();
+    return x;
+}
+
+extern u8 D_802A84F0[];
+extern u8 D_802A8508[];
+extern s32 D_803255DC;
+s32 func_80079D80(s32, void *, void *, s32);
+s32 func_8007A1A0(void);
+
+void func_8006FA20(void) {
+    func_80079D80(0x96, D_802A84F0, D_802A8508, 0x32);
+    D_803255DC = func_8007A1A0();
 }

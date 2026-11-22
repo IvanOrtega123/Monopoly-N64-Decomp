@@ -1,48 +1,30 @@
-u8 func_80069070(s32, s32);
 s32 func_80067648(s32, s32);
+s32 func_80069070(s32, s32);
 extern s32 D_8009675C;
 
-typedef struct SRec14_628BC {
-    /* 0x00 */ s32 unk0;
-    /* 0x04 */ u8 pad[0x10];
-} SRec14_628BC;
+typedef struct { u8 pad0[2]; u16 f2; u8 pad4[6]; s16 fA; u8 padC[0xC]; s8 f18; u8 pad19[3]; } Ent28;
+typedef struct { s32 f0; u8 pad[16]; } Ent20;
+typedef struct {
+    Ent28 items[0x28];
+    u8 pad460[4];
+    Ent20 arr[1];
+} Arg0;
 
-typedef struct SRec14Arr_628BC {
-    SRec14_628BC items[1];
-} SRec14Arr_628BC;
-
-typedef struct SBig628BC {
-    /* 0x000 */ u8 pad[0x464];
-    /* 0x464 */ SRec14Arr_628BC unk464;
-} SBig628BC;
-
-typedef struct SSq628BC {
-    /* 0x00 */ u8 pad0[2];
-    /* 0x02 */ u16 unk2;
-    /* 0x04 */ u8 pad4[6];
-    /* 0x0A */ s16 unk0A;
-    /* 0x0C */ u8 padC[0xC];
-    /* 0x18 */ s8 unk18;
-    /* 0x19 */ u8 pad19[3];
-} SSq628BC;
-
-typedef struct SSqArr628BC {
-    SSq628BC items[1];
-} SSqArr628BC;
-
-s32 func_800628BC(s32 arg0, s32 arg1) {
-    s32 i;
-    s32 total;
-
-    total = ((SBig628BC *)arg0)->unk464.items[arg1].unk0;
-    for (i = 1; i < 0x28; i++) {
-        if ((((SSqArr628BC *)arg0)->items[i].unk18 == arg1) &&
-            !func_80069070(arg0, i)) {
-            if (!((((SSqArr628BC *)arg0)->items[i].unk2 & 0x800) &&
-                  func_80067648(arg0, i) >= 0x64)) {
-                total += ((SSqArr628BC *)arg0)->items[i].unk0A * D_8009675C;
+s32 func_800628BC(Arg0 *arg0, s32 arg1) {
+    s32 sp10;
+    s32 sp14;
+    sp14 = arg0->arr[arg1].f0;
+    sp10 = 1;
+    while (sp10 < 0x28) {
+        if (arg0->items[sp10].f18 == arg1) {
+            if (!(func_80069070((s32)arg0, sp10) & 0xFF)) {
+                if ((arg0->items[sp10].f2 & 0x800) && func_80067648((s32)arg0, sp10) >= 0x64) {
+                } else {
+                    sp14 += arg0->items[sp10].fA * D_8009675C;
+                }
             }
         }
+        sp10++;
     }
-    return total;
+    return sp14;
 }

@@ -1,17 +1,15 @@
 typedef struct SObj3357C {
-    u8 pad0[0x28];
-    void *unk28;
-    u8 pad2C[4];
-    u8 unk30;
+    /* 0x000 */ u8 pad0[0x28];
+    /* 0x028 */ void *unk28;
+    /* 0x02C */ u8 pad2C[4];
+    /* 0x030 */ u8 unk30;
 } SObj3357C;
 
 void *func_8003346C(u16, s32, s16);
 void func_80089500(void *, s32, s32);
 
 void *func_8003357C(u16 arg0, s32 arg1, s16 arg2) {
-    SObj3357C *sp14;
-
-    sp14 = (SObj3357C *)func_8003346C(arg0, arg1, arg2);
+    SObj3357C *sp14 = func_8003346C(arg0, arg1, arg2);
     if (sp14 == NULL) {
         return NULL;
     }

@@ -1,11 +1,11 @@
 typedef struct SRec1C16 {
-    u16 unk0;
-    u8 pad[0x1A];
+    /* 0x00 */ u16 unk0;
+    /* 0x02 */ u8 pad[0x1A];
 } SRec1C16;
 
 typedef struct SRec1C8 {
-    s8 unk0;
-    u8 pad[0x1B];
+    /* 0x00 */ s8 unk0;
+    /* 0x01 */ u8 pad[0x1B];
 } SRec1C8;
 
 extern SRec1C16 D_803246E2[];

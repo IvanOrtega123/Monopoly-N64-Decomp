@@ -6,9 +6,9 @@ void func_800896C0(s8 *, s32);
 void func_80036E10(u16, s32, s32 *, s32);
 void func_8006E0C4(s32);
 
-extern s8 D_80096924;
 extern u8 D_80096BD7;
 extern s8 D_80096BE6;
+extern s8 D_80096924;
 extern u32 D_80097350[];
 extern s8 D_802AFAEC;
 extern u8 D_802AFB00;

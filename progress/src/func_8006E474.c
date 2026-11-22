@@ -1,15 +1,15 @@
-extern void (*D_80325428)();
+extern void (*D_80325428)(void);
 extern u8 D_8029E160[];
 extern u8 D_80303AB0[];
 extern u8 D_8029DFB0[];
 
-void func_8006FA20();
-void func_8006E550(s32 arg0, s32 arg1);
-void func_80082210(s32 arg0);
-void func_80081480(void *arg0, s32 arg1, void (*arg2)(), s32 arg3, void *arg4, s32 arg5);
-void func_80081640(void *arg0);
-void func_80081570(void *arg0, s32 arg1);
-void func_8002AAF4();
+void func_8006FA20(void);
+void func_8006E550(s32, s32);
+void func_80082210(s32);
+void func_80081480(void *, s32, void (*)(void), s32, void *, s32);
+void func_80081640(void *);
+void func_80081570(void *, s32);
+void func_8002AAF4(void);
 
 void func_8006E474(s32 arg0) {
     D_80325428 = NULL;

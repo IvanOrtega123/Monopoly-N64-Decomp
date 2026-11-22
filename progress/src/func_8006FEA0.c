@@ -1,59 +1,53 @@
-extern u8 D_80356FDC;
+/* func_8006FF20 */
+typedef struct S6FF20Leaf {
+    s32 unk0;
+} S6FF20Leaf;
 
-s32 func_8006F0A8(void) {
-    return D_80356FDC;
+typedef struct S6FF20Data {
+    S6FF20Leaf *unk0;
+    s32 unk4;
+} S6FF20Data;
+
+typedef struct S6FF20Arg {
+    u8 pad0[0xC];
+    S6FF20Data *unkC;
+} S6FF20Arg;
+
+s32 func_80083910(s32, s32 *);
+
+s32 func_8006FF20(S6FF20Arg *arg0) {
+    S6FF20Data *sp10;
+
+    sp10 = arg0->unkC;
+    return func_80083910(sp10->unk0->unk0, &sp10->unk4);
 }
 
-extern u8 D_80356FDD;
-
-void func_8006F078(u8 arg0) {
-    D_80356FDD = arg0;
-}
-
-typedef struct S6FD90 {
-    u16 unk0;
-    u8 pad2[4];
-    u16 unk6;
-} S6FD90;
-
-extern u16 D_80300650[][3];
-void func_800718A4(void);
-void func_8007FCC0(void *, void *, s32);
-void func_800718DC(s32, s32);
-
-void func_8006FD90(S6FD90 *arg0, s32 arg1) {
-    u16 sp10;
-
-    sp10 = arg0->unk0;
-    func_800718A4();
-    func_8007FCC0(D_80300650[arg1], arg0, 6);
-    arg0->unk6 = D_80300650[arg1][0] & ~sp10;
-    func_800718DC(~sp10, ~sp10);
-}
+/* func_8006FEA0 */
+extern u8 D_80357198[];
 
 typedef struct S6FEA0Inner {
-    u8 pad0[8];
+    s32 unk00;
+    s32 unk04;
     s32 unk08;
 } S6FEA0Inner;
 
-typedef struct S6FEA0G {
+typedef struct S6FEA0Data {
     S6FEA0Inner *unk00;
     s32 unk04;
     s32 unk08;
     s32 unk0C;
-} S6FEA0G;
+} S6FEA0Data;
 
-typedef struct S6FEA0Wrap {
+typedef struct S6FEA0Arg {
     u8 pad0[0xC];
-    S6FEA0G *unk0C;
-} S6FEA0Wrap;
+    S6FEA0Data *unk0C;
+} S6FEA0Arg;
 
-extern u8 D_80357198[];
-s32 func_80083B20(void *, S6FEA0Inner *, s32);
+s32 func_80083B20(u8 *, S6FEA0Inner *, s32);
 
-s32 func_8006FEA0(S6FEA0Wrap *arg0) {
+s32 func_8006FEA0(S6FEA0Arg *arg0) {
     s32 sp10;
-    S6FEA0G *sp14;
+    S6FEA0Data *sp14;
 
     sp14 = arg0->unk0C;
     sp14->unk0C = 0;
@@ -62,4 +56,17 @@ s32 func_8006FEA0(S6FEA0Wrap *arg0) {
         sp14->unk0C = 1;
     }
     return sp10;
+}
+
+/* func_8006FD30 */
+extern s32 D_80110C5C;
+extern u8 D_80110B80[];
+extern u8 D_80324C88[];
+
+void func_80080440(void *, void *, s32);
+
+void func_8006FD30(void) {
+    if (D_80110C5C != 0) {
+        func_80080440(&D_80324C88, &D_80110B80, 1);
+    }
 }

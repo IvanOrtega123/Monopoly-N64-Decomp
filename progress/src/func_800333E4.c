@@ -1,67 +1,94 @@
-typedef struct S337F8Obj {
-    u8 pad0[0x28];
-    void *unk28;
-    u8 pad2C[4];
-    u8 unk30;
-} S337F8Obj;
+typedef struct SBytes8 {
+    /* 0x00 */ u8 b0;
+    /* 0x01 */ u8 b1;
+    /* 0x02 */ u8 b2;
+    /* 0x03 */ u8 b3;
+    /* 0x04 */ u8 b4;
+    /* 0x05 */ u8 b5;
+    /* 0x06 */ u8 b6;
+    /* 0x07 */ u8 b7;
+} SBytes8;
+
+extern u8 D_803006C4;
+extern u8 D_80324D88;
+extern s32 D_8035653C;
+extern SBytes8 D_80356500[];
+
+void func_800881AC(u8 arg0) {
+    SBytes8 buf;
+    SBytes8 *p;
+    s32 i;
+    s32 n;
+
+    D_8035653C = 1;
+    D_80324D88 = arg0;
+    buf.b0 = 0xFF;
+    buf.b1 = 1;
+    buf.b2 = 3;
+    buf.b3 = arg0;
+    buf.b4 = 0xFF;
+    buf.b5 = 0xFF;
+    buf.b6 = 0xFF;
+    n = D_803006C4;
+    p = D_80356500;
+    if (n > 0) {
+        buf.b7 = 0xFF;
+        i = 0;
+        do {
+            *p = buf;
+            i++;
+        } while (i < n);
+        p++;
+    }
+    p->b0 = 0xFE;
+}
 
 extern s32 D_80300DB0[];
 extern s32 D_80325168[];
 
-void *func_8003370C(u16, s32, s16, s32);
-void *func_8003346C(u16, s32, s16);
-void func_80089500(void *, s32, s32);
-void heap_free(void *);
-
-void *func_800337F8(u16 arg0, s32 arg1, s16 arg2, s32 arg3) {
-    u16 sp10;
-    s16 sp12;
-    S337F8Obj *sp14;
-
-    sp10 = arg0;
-    sp12 = arg2;
-    sp14 = func_8003370C(sp10, arg1, sp12, arg3);
-    sp14->unk30 = 1;
-    return sp14;
-}
-
-void *func_8003357C(u16 arg0, s32 arg1, s16 arg2) {
-    u16 sp10;
-    s16 sp12;
-    S337F8Obj *sp14;
-
-    sp10 = arg0;
-    sp12 = arg2;
-    sp14 = func_8003346C(sp10, arg1, sp12);
-    if (sp14 == NULL) {
-        return NULL;
-    }
-    sp14->unk30 = 1;
-    func_80089500(&sp14->unk28[0] - 0x24, 0, 0x24);
-    return sp14;
-}
-
 void func_800333E4(void) {
-    s32 sp0;
-
-    for (sp0 = 0; sp0 < 0x90; sp0++) {
-        D_80300DB0[sp0] = 0;
-        D_80325168[sp0] = 0;
+    s32 i;
+    for (i = 0; i < 0x90; i++) {
+        D_80300DB0[i] = 0;
+        D_80325168[i] = 0;
     }
 }
 
-void func_80033C38(u16 arg0) {
-    u16 sp10;
-    S337F8Obj *sp14;
-    void *sp18;
+typedef struct SIn31A70 {
+    /* 0x00 */ u8 pad00[0x28];
+    /* 0x28 */ s32 unk28;
+} SIn31A70;
 
-    sp10 = arg0;
-    sp14 = (S337F8Obj *)D_80300DB0[sp10];
-    while (sp14 != NULL) {
-        sp18 = sp14->unk28;
-        heap_free(sp14);
-        sp14 = (S337F8Obj *)sp18;
+typedef struct SOut31A70 {
+    /* 0x00 */ u8 pad00[0x4C];
+    /* 0x4C */ u8 unk4C;
+    /* 0x4D */ u8 pad4D[3];
+    /* 0x50 */ s32 unk50;
+    /* 0x54 */ u16 unk54;
+    /* 0x56 */ u8 pad56[0x0E];
+    /* 0x64 */ f32 unk64;
+} SOut31A70;
+
+extern void *heap_alloc(s32);
+extern s32 func_80089500(void *, s32, s32);
+
+void *func_80031A70(SIn31A70 *arg0) {
+    SOut31A70 *sp10 = heap_alloc(0x70);
+    if (sp10 != NULL) {
+        func_80089500(sp10, 0, 0x70);
+        sp10->unk50 = arg0->unk28;
+        sp10->unk54 = 0xFFFF;
+        sp10->unk4C = 0;
+        sp10->unk64 = 1e8f;
     }
-    D_80300DB0[sp10] = 0;
-    D_80325168[sp10] = 0;
+    return sp10;
+}
+
+extern f32 func_800318B0(f32 *);
+
+f32 func_800319B4(f32 *arg0, f32 *arg1, f32 *arg2) {
+    arg0[0] = arg1[0] - arg2[0];
+    arg0[1] = arg1[1] - arg2[1];
+    arg0[2] = arg1[2] - arg2[2];
+    return func_800318B0(arg0);
 }

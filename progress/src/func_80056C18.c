@@ -1,9 +1,7 @@
+s32 func_80056B14(s32, s32);
 extern s8 D_800977F0[][5];
 
-s32 func_80056B14(s32, s32);
-
-s32 func_80056C18(s32 arg0, s32 arg1)
-{
+s32 func_80056C18(s32 arg0, s32 arg1) {
     s32 sp10;
     s32 sp14;
 

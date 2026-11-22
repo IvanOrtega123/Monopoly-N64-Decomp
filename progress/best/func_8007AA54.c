@@ -83,6 +83,7 @@ void func_8007AA54(SAA54 *arg0, SAA54Arg1 *arg1, s32 arg2) {
     SAA54Rec *rec;
     s32 sel;
     s32 idx;
+    s32 one;
     s32 m;
     s16 v;
     u16 i;
@@ -129,51 +130,56 @@ tbl_done:
     for (i = 0; (u32)i < (u32)arg0->unk1C; i++) {
         arg0->unk14[i] = 0;
     }
-    d0 = D_801157D0;
-    for (n = 0; (u32)n < (u32)arg0->unk24; n++) {
-        ent = &arg0->unk20[n];
-        ent->unk00 = tbl[(u16)idx];
-        ent->unk04 = tbl[(u16)(idx + 1)];
-        ent->unk0A = (u16)tbl[(u16)(idx + 2)];
-        ent->unk08 = (u16)tbl[(u16)(idx + 3)];
-        ent->unk0C = (u16)tbl[(u16)(idx + 4)];
-        idx += 5;
-        if (tbl[(u16)idx] != 0) {
-            ent->unk10 = (f32)((f64)((f32)tbl[idx & 0xFFFF] / 1000.0f) * 2.0 / (f64)arg1->unk18);
-            ent->unk1C = (f32)((f64)(f32)tbl[(u16)(idx + 1)] / D_801157D8 * (f64)(u32)(ent->unk04 - ent->unk00));
-            idx += 2;
-            ent->unk18 = 0;
-            ent->unk14 = 1.0f;
-            ent->unk24 = func_8007DC50(0, 0, arg2, 1, 0x34);
-            ((SAA54Sub *)ent->unk24)->unk14 = func_8007DC50(0, 0, arg2, 1, 0x20);
-            ((SAA54Sub *)ent->unk24)->unk20 = 0;
-            ((SAA54Sub *)ent->unk24)->unk24 = 1;
-        } else {
-            ent->unk24 = NULL;
-            idx += 2;
-        }
-        if (tbl[(u16)idx] != 0) {
-            ent->unk20 = func_8007DC50(0, 0, arg2, 1, 0x30);
-            ((SAA54Rec *)ent->unk20)->unk28 = func_8007DC50(0, 0, arg2, 1, 8);
-            ((SAA54Rec *)ent->unk20)->unk00 = tbl[idx & 0xFFFF];
-            idx++;
-            rec = ent->unk20;
-            v = rec->unk00 >> 1;
-            rec->unk2C = 1;
-            rec->unk02 = 0x4000 - v;
-            for (m = 7; m >= 0; m--) {
-                rec->unk08[m] = 0;
+    n = 0;
+    if (arg0->unk24 != 0) {
+        one = 1;
+        d0 = D_801157D0;
+        do {
+            ent = &arg0->unk20[n];
+            ent->unk00 = tbl[(u16)idx];
+            ent->unk04 = tbl[(u16)(idx + 1)];
+            ent->unk0A = (u16)tbl[(u16)(idx + 2)];
+            ent->unk08 = (u16)tbl[(u16)(idx + 3)];
+            ent->unk0C = (u16)tbl[(u16)(idx + 4)];
+            idx += 5;
+            if (tbl[(u16)idx] != 0) {
+                ent->unk10 = (f32)((f64)((f32)tbl[idx & 0xFFFF] / 1000.0f) * 2.0 / (f64)arg1->unk18);
+                ent->unk1C = (f32)((f64)(f32)tbl[(u16)(idx + 1)] / D_801157D8 * (f64)(u32)(ent->unk04 - ent->unk00));
+                idx += 2;
+                ent->unk18 = 0;
+                ent->unk14 = 1.0f;
+                ent->unk24 = func_8007DC50(0, 0, arg2, 1, 0x34);
+                ((SAA54Sub *)ent->unk24)->unk14 = func_8007DC50(0, 0, arg2, 1, 0x20);
+                ((SAA54Sub *)ent->unk24)->unk20 = 0;
+                ((SAA54Sub *)ent->unk24)->unk24 = one;
+            } else {
+                ent->unk24 = NULL;
+                idx += 2;
             }
-            rec->unk08[8] = v;
-            r = (f64)v / d0;
-            t = r;
-            for (m = 9; m < 0x10; m++) {
-                t = t * r;
-                rec->unk08[m] = (s16)(s32)(t * d0);
+            if (tbl[(u16)idx] != 0) {
+                ent->unk20 = func_8007DC50(0, 0, arg2, 1, 0x30);
+                ((SAA54Rec *)ent->unk20)->unk28 = func_8007DC50(0, 0, arg2, 1, 8);
+                ((SAA54Rec *)ent->unk20)->unk00 = tbl[idx & 0xFFFF];
+                idx++;
+                rec = ent->unk20;
+                v = rec->unk00 >> 1;
+                rec->unk2C = one;
+                rec->unk02 = 0x4000 - v;
+                for (m = 7; m >= 0; m--) {
+                    rec->unk08[m] = 0;
+                }
+                rec->unk08[8] = v;
+                r = (f64)v / d0;
+                t = r;
+                for (m = 9; m < 0x10; m++) {
+                    t = t * r;
+                    rec->unk08[m] = (s16)(s32)(t * d0);
+                }
+            } else {
+                ent->unk20 = NULL;
+                idx++;
             }
-        } else {
-            ent->unk20 = NULL;
-            idx++;
-        }
+            n++;
+        } while ((u32)n < (u32)arg0->unk24);
     }
 }

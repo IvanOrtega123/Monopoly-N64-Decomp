@@ -1,8 +1,8 @@
 typedef struct SOut34C58 {
-    /* 0x00 */ f32 unk0;
-    /* 0x04 */ f32 unk4;
-    /* 0x08 */ f32 unk8;
-    /* 0x0C */ u8 padC[0x18];
+    f32 unk0;
+    f32 unk4;
+    f32 unk8;
+    u8 padC[0x18];
 } SOut34C58;
 
 s32 func_8003472C(s32, s32, s32, s32, s32);

@@ -1,39 +1,39 @@
 typedef struct S2C83CPair {
-    /* 0x0 */ u16 unk0;
-    /* 0x2 */ u16 unk2;
+    u16 unk0;
+    u16 unk2;
 } S2C83CPair;
 
 typedef struct SAllocC940 {
-    /* 0x00 */ u8 pad0[4];
-    /* 0x04 */ void *unk4;
-    /* 0x08 */ S2C83CPair p8;
-    /* 0x0C */ S2C83CPair pC;
-    /* 0x10 */ S2C83CPair p10;
-    /* 0x14 */ S2C83CPair p14;
+    u8 pad0[4];
+    void *unk4;
+    S2C83CPair p8;
+    S2C83CPair pC;
+    S2C83CPair p10;
+    S2C83CPair p14;
 } SAllocC940;
 
 typedef struct SSrcC940 {
-    /* 0x00 */ u8 pad0[8];
-    /* 0x08 */ s32 *unk8;
-    /* 0x0C */ s32 *unkC;
-    /* 0x10 */ s32 *unk10;
-    /* 0x14 */ s32 *unk14;
-    /* 0x18 */ u8 pad18[8];
-    /* 0x20 */ u16 unk20;
-    /* 0x22 */ u16 unk22;
-    /* 0x24 */ u16 unk24;
-    /* 0x26 */ u16 unk26;
+    u8 pad0[8];
+    s32 *unk8;
+    s32 *unkC;
+    s32 *unk10;
+    s32 *unk14;
+    u8 pad18[8];
+    u16 unk20;
+    u16 unk22;
+    u16 unk24;
+    u16 unk26;
 } SSrcC940;
 
 typedef struct SDstC940 {
-    /* 0x00 */ s32 unk0;
-    /* 0x04 */ s32 unk4;
-    /* 0x08 */ s32 unk8;
-    /* 0x0C */ s32 unkC;
-    /* 0x10 */ s32 unk10;
-    /* 0x14 */ s32 unk14;
-    /* 0x18 */ s32 unk18;
-    /* 0x1C */ s32 unk1C;
+    s32 unk0;
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
 } SDstC940;
 
 s32 func_8002C83C(s32 *, s32 *, s32, s32, S2C83CPair *);

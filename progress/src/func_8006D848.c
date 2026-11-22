@@ -12,16 +12,20 @@ s32 func_8006D848(s32 arg0, s32 *arg1) {
 
     min = 1e12f;
     i = 0;
-    while (i < 6) {
-        value = func_8006D468(arg0, i);
-        if (value < min) {
-            min = value;
-            bestIndex = i;
-        }
-        ++i;
+loop:
+    if (i >= 6) {
+        goto done;
     }
+    value = func_8006D468(arg0, i);
+    if (value < min) {
+        min = value;
+        bestIndex = i;
+    }
+    ++i;
+    goto loop;
+done:
     if ((f64)min < D_801154F0) {
-        if (arg1 != NULL) {
+        if (arg1 != 0) {
             *arg1 = bestIndex + 1;
         }
         return 1;

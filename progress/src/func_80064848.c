@@ -1,21 +1,20 @@
-s32 func_80089500(void *, s32, s32);
-
 typedef struct S64848 {
-    /* 0x00 */ s32 unk00;
-    /* 0x04 */ s32 unk04;
-    /* 0x08 */ u8 unk08[0x28];
-    /* 0x30 */ u8 pad30[0x28];
-    /* 0x58 */ s32 unk58;
-    /* 0x5C */ s32 unk5C;
-    /* 0x60 */ u8 unk60;
-    /* 0x61 */ u8 unk61;
-    /* 0x62 */ u8 unk62;
-    /* 0x63 */ u8 unk63;
+    s32 unk00;       /* 0x00 */
+    s32 unk04;       /* 0x04 */
+    u8 unk08[0x28];  /* 0x08 */
+    u8 pad30[0x28];  /* 0x30 */
+    s32 unk58;       /* 0x58 */
+    s32 unk5C;       /* 0x5C */
+    u8 unk60;        /* 0x60 */
+    u8 unk61;        /* 0x61 */
+    u8 unk62;        /* 0x62 */
+    u8 unk63;        /* 0x63 */
 } S64848;
+
+void *func_80089500(void *, s32, u32);
 
 void func_80064848(S64848 *arg0, S64848 *arg1) {
     s32 i;
-
     func_80089500(arg1, 0, 0x64);
     arg1->unk00 = arg0->unk04;
     arg1->unk04 = arg0->unk00;

@@ -8,6 +8,7 @@ typedef struct S311D8 {
 
 extern f32 D_800921C4;
 f32 func_8007EB30(f32);
+f32 func_8007FB20(f32);
 
 void func_800311D8(f32 *arg0, f32 arg1) {
     S311D8 sp10;

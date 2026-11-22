@@ -1,6 +1,5 @@
 void func_800304C0(f32 *arg0, f32 a1, f32 a2, f32 a3) {
     s32 i;
-
     i = 0;
 loop:
     if (!(i < 4)) goto out;

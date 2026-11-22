@@ -1,8 +1,9 @@
+s32 func_8002A77C(void);
 s32 func_8002C544(void);
-void func_8002A77C(void);
-void func_8003DFC4(s32 *);
-extern s32 D_8029DF90;
+s32 func_8003DFC4(s32 *);
+
 extern s32 D_80096BE0;
+extern s32 D_8029DF90;
 extern s32 D_80324CA0;
 
 void func_8005D690(u8 arg0) {

@@ -1,33 +1,31 @@
-typedef struct SFamEntry {
+typedef struct SEnt6149C {
     /* 0x00 */ u8 pad0[4];
-    /* 0x04 */ s32 unk4;
-    /* 0x08 */ u8 pad8[7];
-    /* 0x0F */ s8 unkF;
-    /* 0x10 */ u8 pad10[4];
-} SFamEntry;
+    /* 0x04 */ s32 unk04;
+    /* 0x08 */ u8 pad[0x0C];
+} SEnt6149C; /* size 0x14 */
 
-typedef struct SFamBlock {
-    u8 pad0[0x460];
-    SFamEntry arr[1];
-} SFamBlock;
+typedef struct SBig6149C {
+    /* 0x000 */ u8 pad0[0x460];
+    /* 0x460 */ SEnt6149C arr[1];
+} SBig6149C;
 
 s32 func_800611EC(s32, s32, s32);
 
-s32 func_800613B0(s32 arg0, s32 arg1, s32 arg2) {
-    SFamEntry *sp10;
-    s32 sp14;
+s32 func_800613B0(void *arg0, s32 arg1, s32 arg2) {
+    SEnt6149C *p;
+    s32 diff;
 
-    sp10 = &((SFamBlock *)arg0)->arr[arg1];
-    if (sp10->unk4 >= arg2) {
-        sp10->unk4 -= arg2;
+    p = &((SBig6149C *)arg0)->arr[arg1];
+    if (p->unk04 >= arg2) {
+        p->unk04 -= arg2;
         return arg2;
     }
-    sp14 = arg2 - sp10->unk4;
-    if ((func_800611EC(arg0, arg1, sp14) & 0xFF) == 0) {
-        sp14 = 0;
+    diff = arg2 - p->unk04;
+    if ((func_800611EC(arg0, arg1, diff) & 0xFF) == 0) {
+        diff = 0;
     } else {
-        sp14 = arg2;
-        sp10->unk4 -= sp14;
+        diff = arg2;
+        p->unk04 -= diff;
     }
-    return sp14;
+    return diff;
 }

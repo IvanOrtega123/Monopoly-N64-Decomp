@@ -1,12 +1,17 @@
 s32 func_8003C700(s32 arg0) {
-    s32 n;
-    n = 0;
-    for (;;) {
-        n += 7;
+    s32 sp0 = 0;
+    do {
+        sp0 += 7;
         arg0 /= 10;
-        if (arg0 <= 0) {
-            break;
-        }
+    } while (arg0 > 0);
+    return sp0;
+}
+
+s32 func_8003A1C0(s32 arg0) {
+    s32 sp0 = 0;
+    while (1) {
+        if (arg0 == 1) return sp0;
+        arg0 >>= 1;
+        sp0++;
     }
-    return n;
 }

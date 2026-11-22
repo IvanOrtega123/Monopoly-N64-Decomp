@@ -1,15 +1,14 @@
-extern s8 D_800977F0[][1];
-
-s32 func_80067F9C(SBoardSquare *arg0, s32 arg1) {
+s32 func_80067F9C(s32 arg0, s32 arg1) {
     s32 i;
     s32 j;
     s32 found;
+    extern s8 D_800977F0[][5];
 
     found = -1;
     for (i = 0; i < 8; i++) {
         j = 0;
-        while ((j << 4) && D_800977F0[i * 5][j] != -1) {
-            if (((SBoardSquareArr *)arg0)->items[D_800977F0[i * 5][0]].unk18 == arg1) {
+        while ((j << 4) && D_800977F0[i][j] != -1) {
+            if (((SBoardSquareArr *)arg0)->items[D_800977F0[i][0]].unk18 == arg1) {
                 found = i;
                 break;
             }

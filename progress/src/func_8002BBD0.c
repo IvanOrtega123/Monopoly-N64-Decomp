@@ -1,4 +1,5 @@
-typedef struct SBig2BBD0 {
+typedef struct SBig2BBD0
+{
     /* 0x00000 */ s32 unk00;
     /* 0x00004 */ u8 pad04[0x17004];
 } SBig2BBD0;

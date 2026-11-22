@@ -1,4 +1,5 @@
-typedef struct SCmd {
+typedef struct SCmd
+{
     s32 unk0;
     s32 unk4;
     u8 unk8;
@@ -7,7 +8,8 @@ typedef struct SCmd {
     u8 padB[5];
 } SCmd;
 
-typedef struct SWord8 {
+typedef struct SWord8
+{
     s32 w0;
     s32 w1;
 } SWord8;
@@ -15,7 +17,8 @@ typedef struct SWord8 {
 extern SCmd *D_803046C4;
 extern void func_800800DC(void *, void *, s32);
 
-SWord8 *func_8002C388(SWord8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
+SWord8 *func_8002C388(SWord8 *arg0, s32 arg1, s32 arg2, u8 *arg3)
+{
     SWord8 *sp10;
 
     func_800800DC(D_803046C4, &arg2, 3);

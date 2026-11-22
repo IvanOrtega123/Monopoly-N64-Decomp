@@ -4,25 +4,25 @@ typedef struct S802AF238 {
 } S802AF238;
 
 extern s32 D_80300D40;
-extern u16 D_802AF1E0;
+extern s16 D_802AF1E0;
 extern u16 D_802AF1E2;
-extern u16 D_802AF1E4;
-extern u16 D_802AF1E6;
-extern u16 D_802AF1F8;
-extern u16 D_802AF1FA;
+extern s16 D_802AF1E4;
+extern s16 D_802AF1E6;
 extern s32 D_802AF204;
 extern f32 D_802AF208;
 extern f32 D_802AF20C;
-extern u16 D_802AF210;
-extern u16 D_802AF212;
-extern u16 D_802AF214;
-extern u16 D_802AF216;
-extern u16 D_802AF218;
-extern u16 D_802AF21A;
 extern f32 D_802AF21C;
-extern S802AF238 D_802AF238[];
-extern u16 D_802AF3A8;
+extern u16 D_802AF210;
+extern s16 D_802AF212;
+extern u16 D_802AF214;
+extern s16 D_802AF216;
+extern s16 D_802AF218;
+extern s16 D_802AF21A;
+extern u16 D_802AF1F8;
+extern u16 D_802AF1FA;
+extern s16 D_802AF3A8;
 extern u8 D_80300728;
+extern S802AF238 D_802AF238[];
 
 void func_8002DB04(void) {
     s32 sp0;

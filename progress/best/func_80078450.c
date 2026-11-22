@@ -28,10 +28,6 @@ typedef struct S78450Mid
   u8 pad00[0x20];
   S78450Obj *unk20;
 } S78450Mid;
-typedef struct S78450Dummy
-{
-  u8 pad[0x18];
-} S78450Dummy;
 extern S78450Root *D_80111234;
 SGfxCmd8002C048 *func_80076BC0(s32, SGfxCmd8002C048 *);
 SGfxCmd8002C048 *func_80078950(S78450Obj *, S78450Entry *, s32, SGfxCmd8002C048 *);
@@ -44,7 +40,7 @@ void *func_80078450(s32 arg0, SGfxCmd8002C048 *dl)
   S78450Entry *e;
   SGfxCmd8002C048 *p;
   SGfxCmd8002C048 *q;
-  S78450Dummy dummy;
+  u8 dummy[0x10];
   s32 x;
   s32 y;
   S78450Obj *new_var;
@@ -137,4 +133,3 @@ void *func_80078450(s32 arg0, SGfxCmd8002C048 *dl)
   p->w1 = 0x07C00170;
   return dl + 1;
 }
-

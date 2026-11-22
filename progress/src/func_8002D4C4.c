@@ -1,11 +1,11 @@
 typedef struct SArg0D4C4 {
-    /* 0x00 */ u8 pad0[0x10];
-    /* 0x10 */ s16 unk10;
+    u8 pad0[0x10];
+    s16 unk10;
 } SArg0D4C4;
 
 typedef struct SArg2D4C4 {
-    /* 0x00 */ u8 pad0[0x18];
-    /* 0x18 */ s32 *unk18;
+    u8 pad0[0x18];
+    s32 *unk18;
 } SArg2D4C4;
 
 SAlloc8002D4C4 *func_8002CD7C(SArg0D4C4 *, s32);

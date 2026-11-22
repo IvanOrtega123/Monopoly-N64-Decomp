@@ -4,7 +4,6 @@ extern u16 D_8030069A;
 
 s32 func_80026154(s32 *arg0) {
     s32 sp0;
-
     sp0 = D_80091F78;
     if (D_8030069A == 0) {
         return -1;

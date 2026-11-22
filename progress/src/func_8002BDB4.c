@@ -1,6 +1,6 @@
 typedef struct SCmd8 {
-    s32 unk0;
-    s32 unk4;
+    /* 0x00 */ s32 unk0;
+    /* 0x04 */ s32 unk4;
 } SCmd8;
 
 void func_8007F7A0(u8 *, u16 *, s32, s32, f32, f32, f32);

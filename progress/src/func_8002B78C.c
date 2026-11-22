@@ -38,14 +38,10 @@ void func_8002B78C(void) {
     func_8006F9B0();
     D_803255E8 = 0x80000400;
     sp10 = 0;
-loop_4:
-    if (!(sp10 < 2)) {
-        goto out;
+    while (sp10 < 2) {
+        D_8033F2A0[sp10].unk0 = 0;
+        sp10++;
     }
-    D_8033F2A0[sp10].unk0 = 0;
-    sp10++;
-    goto loop_4;
-out:
     D_803255C8 = -1;
     D_80324E78 = -1;
     D_80300190 = 0;

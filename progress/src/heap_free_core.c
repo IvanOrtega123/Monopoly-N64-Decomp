@@ -1,12 +1,12 @@
 typedef struct SHeapChunk {
-    /* 0x0 */ u32 flags;
-    /* 0x4 */ u32 size;
+    u32 flags;
+    u32 size;
 } SHeapChunk;
 
 typedef struct SHeapState {
-    /* 0x0 */ u8 *freeList;
-    /* 0x4 */ u32 unk4;
-    /* 0x8 */ u8 *lowWater;
+    u8 *freeList;
+    u32 unk4;
+    u8 *lowWater;
 } SHeapState;
 
 void heap_free_core(u8 *arg0, SHeapState *arg1) {

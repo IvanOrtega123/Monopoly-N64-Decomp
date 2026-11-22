@@ -1,11 +1,9 @@
-typedef struct SNode71580 SNode71580;
-
-struct SNode71580 {
-    /* 0x00 */ SNode71580 *unk0;
+typedef struct SNode71580 {
+    /* 0x00 */ struct SNode71580 *unk0;
     /* 0x04 */ s32 *slots;
     /* 0x08 */ u16 id;
     /* 0x0A */ u8 unkA;
-};
+} SNode71580;
 
 extern SNode71580 *D_80110C30;
 s32 func_80079CE0(s32);

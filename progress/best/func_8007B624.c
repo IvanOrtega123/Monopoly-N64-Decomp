@@ -22,8 +22,7 @@ typedef struct S7B624 {
     /* 0x44 */ s32 unk44;
 } S7B624;
 
-GfxPair *func_8007B624(S7B624 *arg0, u16 *arg1, s32 arg2, s32 arg3, GfxPair *arg4) {
-    GfxPair *out = arg4;
+GfxPair *func_8007B624(S7B624 *arg0, u16 *arg1, s32 arg2, s32 arg3, GfxPair *out) {
     s32 s4;
     s32 s0;
     s32 a2;

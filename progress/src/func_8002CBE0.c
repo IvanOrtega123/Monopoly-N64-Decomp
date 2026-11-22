@@ -1,36 +1,37 @@
-typedef struct S8002CBE0 S8002CBE0;
-struct S8002CBE0 {
-    u8 pad0[4];
-    S8002CBE0 *unk4;
-    S8002CBE0 *unk8;
-    void (*unkC)();
-    u16 unk10;
-    u16 unk12;
-    u16 unk14;
-};
+extern void func_8002CB00(void *);
+extern void heap_free(void *);
 
-void func_8002CB00();
-void heap_free();
+typedef struct S8002CBE0 {
+    /* 0x00 */ u8 pad0[8];
+    /* 0x08 */ void *unk08;
+    /* 0x0C */ void (*unk0C)(void *, s32);
+    /* 0x10 */ u8 pad10[2];
+    /* 0x12 */ u16 unk12;
+    /* 0x14 */ u16 unk14;
+} S8002CBE0;
 
-void func_8002CBE0(S8002CBE0 *arg0) {
-    S8002CBE0 *sp10;
-    S8002CBE0 *sp14;
+typedef struct SNode_CBE0 {
+    /* 0x00 */ u8 pad0[4];
+    /* 0x04 */ void *unk04;
+} SNode_CBE0;
 
-    if (arg0 == NULL) {
+void func_8002CBE0(void *arg0)
+{
+    void *sp10;
+    void *sp14;
+
+    if (arg0 == NULL)
         return;
-    }
-    if ((u16)(arg0->unk12 & 0x8000) != 0) {
+    if (((S8002CBE0 *)arg0)->unk12 & 0x8000 & 0xFFFF)
         return;
-    }
-    arg0->unk12 |= 0x8000;
-    if (arg0->unkC != NULL) {
-        arg0->unkC(arg0, 1);
-    }
-    if (arg0->unk14 != 0) {
-        sp10 = arg0->unk8;
-        sp14 = sp10->unk4;
+    ((S8002CBE0 *)arg0)->unk12 |= 0x8000;
+    if (((S8002CBE0 *)arg0)->unk0C != NULL)
+        ((S8002CBE0 *)arg0)->unk0C(arg0, 1);
+    if (((S8002CBE0 *)arg0)->unk14 != 0) {
+        sp10 = ((S8002CBE0 *)arg0)->unk08;
+        sp14 = ((SNode_CBE0 *)sp10)->unk04;
         while (sp10 != NULL) {
-            sp14 = sp10->unk4;
+            sp14 = ((SNode_CBE0 *)sp10)->unk04;
             func_8002CBE0(sp10);
             sp10 = sp14;
         }

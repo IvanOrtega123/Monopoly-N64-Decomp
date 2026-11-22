@@ -1,5 +1,3 @@
-void *heap_alloc();
-
 typedef struct S3346C {
     /* 0x00 */ u16 unk00;
     /* 0x02 */ u16 unk02;
@@ -23,6 +21,8 @@ typedef struct S3346CPar {
 
 extern S3346CObj **D_802AF3AC;
 extern S3346C *D_80300DB0[];
+
+void *heap_alloc(s32);
 
 S3346C *func_8003346C(u16 arg0, S3346CPar *arg1, s16 arg2) {
     S3346C *p;

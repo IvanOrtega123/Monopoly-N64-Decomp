@@ -1,10 +1,10 @@
 typedef struct SByte4F64C {
-    s8 unk0;
-    u8 pad[0x13];
-} SByte4F64C;
+    /* 0x00 */ s8 unk0;
+    /* 0x01 */ u8 pad[0x13];
+} SByte4F64C; /* size 0x14 */
 
 typedef struct S16Rec {
-    s16 unk0;
+    /* 0x00 */ s16 unk0;
 } S16Rec;
 
 extern s8 D_80324B95;

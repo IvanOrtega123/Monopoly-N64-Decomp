@@ -1,18 +1,18 @@
 typedef struct SCtx70004 {
-    s32 *unk00;
-    s32 unk04;
-    s32 unk08;
-    s32 unk0C;
-    s32 unk10;
+    /* 0x00 */ s32 *unk00;
+    /* 0x04 */ s32 unk04;
+    /* 0x08 */ s32 unk08;
+    /* 0x0C */ s32 unk0C;
+    /* 0x10 */ s32 unk10;
 } SCtx70004;
 
 typedef struct SArg70004 {
-    u8 pad0[0xC];
-    SCtx70004 *unk0C;
+    /* 0x00 */ u8 pad0[0xC];
+    /* 0x0C */ SCtx70004 *unk0C;
 } SArg70004;
 
-s32 func_80083750(s32, u16, s32, s32, s32, s32 *);
-s32 func_80082B20(s32, u16, s32, s32, s32, s32, s32 *);
+s32 func_80083750(s32, u16, s32, s32 *, s32, s32 *);
+s32 func_80082B20(s32, u16, s32, s32 *, s32, s32 *, s32 *);
 
 extern u16 D_80110B90;
 extern s32 D_80110B94;

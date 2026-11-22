@@ -1,21 +1,37 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -O0 -G0 -mips3 -mgp32 -mfp32, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
-
 extern u8 D_80324DF4;
 extern u8 D_803564A0;
+extern s32 D_80300718;
+extern s8 D_80324B52[];
+extern u8 D_80096BD7;
+extern s32 D_8029DF68;
+extern s32 func_80037D34(s32, s32);
 
 s32 func_8005C640(void) {
     D_803564A0 = D_80324DF4;
+    return 0;
+}
+
+s32 func_8005B918(void) {
+    if (D_80300718 < 0) {
+        return 0;
+    }
+    if (D_80324B52[D_80300718 * 0x14] < 2) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 func_8005B8B8(void) {
+    if (D_80096BD7 != 0) {
+        D_8029DF68 = 0x1E;
+    }
+    if (D_8029DF68-- <= 0) {
+        return 0;
+    }
+    return -1;
+}
+
+s32 func_8005B880(void) {
+    func_80037D34(0xD, -1);
     return 0;
 }

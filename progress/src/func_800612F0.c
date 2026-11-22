@@ -1,3 +1,9 @@
+extern s32 func_8005D764(s32);
+extern void func_800611EC(s32, s32, s32);
+extern void func_800800DC(s32, s32, s32);
+extern void func_8005D7BC(s32);
+extern s32 func_8005F4E0(s32, void *, s32);
+
 typedef struct SFamEntry {
     /* 0x00 */ u8 pad0[4];
     /* 0x04 */ s32 unk4;
@@ -11,22 +17,19 @@ typedef struct SFamBlock {
     SFamEntry arr[1];
 } SFamBlock;
 
+/* ---- func_8006149C ---- */
 s32 func_8006149C(s32 arg0, s32 arg1, s32 arg2) {
     SFamEntry *sp0;
 
     sp0 = &((SFamBlock *)arg0)->arr[arg1];
-    if (arg2 > sp0->unk4) {
+    if (sp0->unk4 < arg2) {
         return 0;
     }
     sp0->unk4 -= arg2;
     return 1;
 }
 
-s32 func_8005D764(s32);
-void func_800611EC(s32, s32, s32);
-void func_800800DC(s32, s32, s32);
-void func_8005D7BC(s32);
-
+/* ---- func_800612F0 ---- */
 s32 func_800612F0(s32 arg0, s32 arg1, s32 arg2) {
     SFamEntry *sp10;
     s32 sp14;
@@ -43,31 +46,24 @@ s32 func_800612F0(s32 arg0, s32 arg1, s32 arg2) {
     return sp1C;
 }
 
-s32 func_8006185C(s32 arg0, s32 arg1, s32 arg2) {
-    s32 sp0;
+/* ---- func_8005F850 ---- */
+typedef struct SEntry5F850 {
+    /* 0x00 */ u8 pad0[0x18];
+    /* 0x18 */ s8 unk18;
+    /* 0x19 */ u8 pad19[3];
+} SEntry5F850;
 
-    sp0 = ((SFamBlock *)arg0)->arr[arg1].unkF + arg2;
-    if (sp0 >= 0x28) {
-        sp0 -= 0x28;
+s32 func_8005F850(s32 arg0, s32 arg1) {
+    s32 sp10;
+    s32 sp14;
+    SEntry5F850 *sp18;
+
+    sp14 = 0;
+    for (sp10 = 1; sp10 < 0x28; sp10++) {
+        sp18 = (SEntry5F850 *)(arg0 + sp10 * 0x1C);
+        if (sp18->unk18 == arg1) {
+            sp14 += func_8005F4E0(arg0, sp18, 0);
+        }
     }
-    if (sp0 < 0) {
-        sp0 += 0x28;
-    }
-    return sp0;
-}
-
-typedef struct SEntry61CA8 {
-    /* 0x00 */ u8 pad0[6];
-    /* 0x06 */ s16 unk6;
-    /* 0x08 */ u8 pad8[0x14];
-} SEntry61CA8;
-
-extern s32 D_8009675C;
-s32 func_80061B0C(s32, s32, s32, s32);
-
-s32 func_80061CA8(s32 arg0, s32 arg1, s32 arg2) {
-    if (arg2 < 0 || arg2 >= 0x28) {
-        return 0;
-    }
-    return func_80061B0C(arg0, arg1, arg2, ((SEntry61CA8 *)arg0)[arg2].unk6 * D_8009675C) & 0xFF;
+    return sp14;
 }

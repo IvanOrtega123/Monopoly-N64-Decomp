@@ -1,37 +1,37 @@
 typedef struct S2D290Obj {
-    /* 0x00 */ s32 unk00;
-    /* 0x04 */ struct S2D290Obj *unk04;
-    /* 0x08 */ struct S2D290Obj *unk08;
+    s32 unk00;
+    struct S2D290Obj *unk04;
+    struct S2D290Obj *unk08;
 } S2D290Obj;
 
 typedef struct S2D290Child {
-    /* 0x00 */ u8 pad00[0x1C];
-    /* 0x1C */ f32 unk1C;
-    /* 0x20 */ f32 unk20;
-    /* 0x24 */ u16 unk24;
-    /* 0x26 */ u16 unk26;
-    /* 0x28 */ u8 pad28[0x2C];
-    /* 0x54 */ s32 unk54;
+    u8 pad00[0x1C];
+    f32 unk1C;
+    f32 unk20;
+    u16 unk24;
+    u16 unk26;
+    u8 pad28[0x2C];
+    s32 unk54;
 } S2D290Child;
 
 typedef struct S2D290Src {
-    /* 0x00 */ u8 pad00[0x4C];
-    /* 0x4C */ s16 unk4C;
-    /* 0x4E */ u8 pad4E[0x0E];
-    /* 0x5C */ u16 unk5C;
-    /* 0x5E */ u8 pad5E[2];
-    /* 0x60 */ u16 *unk60;
+    u8 pad00[0x4C];
+    s16 unk4C;
+    u8 pad4E[0x0E];
+    u16 unk5C;
+    u8 pad5E[2];
+    u16 *unk60;
 } S2D290Src;
 
 typedef struct S2D290Arg3 {
-    /* 0x00 */ u16 unk0;
-    /* 0x02 */ u16 unk2;
+    u16 unk0;
+    u16 unk2;
 } S2D290Arg3;
 
 typedef struct S2D290Ctx {
-    /* 0x00 */ S2D290Src **unk0;
-    /* 0x04 */ u8 pad04[0x0C];
-    /* 0x10 */ void **unk10;
+    S2D290Src **unk0;
+    u8 pad04[0x0C];
+    void **unk10;
 } S2D290Ctx;
 
 S2D290Child *func_8002D0A4(S2D290Obj *, void *);

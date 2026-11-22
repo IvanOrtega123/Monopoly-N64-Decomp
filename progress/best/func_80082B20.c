@@ -26,6 +26,14 @@ typedef union U82B20Cell {
     u8 b[2];
 } U82B20Cell;
 
+typedef union U82B20Page {
+    u16 w;
+    struct {
+        u16 b0 : 8;
+        u16 b1 : 8;
+    } f;
+} U82B20Page;
+
 s32 func_80083750(S82B20 *, u16, u32, u8 *, u8 *, s32 *);
 s32 func_80082E2C(S82B20 *, u8 *, s32, s32 *, u32, s32 *, s32 *);
 s32 func_80083910(S82B20 *, s32 *);
@@ -40,13 +48,13 @@ s32 func_80082B20(S82B20 *arg0, u16 arg1, u32 arg2, u8 *arg3, u8 *arg4, s32 arg5
     s32 sp244;
     s32 sp248;
     s32 sp24C;
+    u16 fp;
     s32 s3;
     s32 s5;
     s32 s6;
     s32 s7;
     u32 s1;
     s32 s0;
-    register s16 fp;
     s32 ret;
 
     s6 = 0;
@@ -103,7 +111,8 @@ s32 func_80082B20(S82B20 *arg0, u16 arg1, u32 arg2, u8 *arg3, u8 *arg4, s32 arg5
                 return ret;
             }
         } else {
-            fp = (s1 << 8) | (sp244 & 0xFF);
+            fp = s1 << 8;
+            fp |= sp244 & 0xFF;
         }
         if (sp248 >= s3) {
             s3 = 0;

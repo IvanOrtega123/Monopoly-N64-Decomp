@@ -1,12 +1,12 @@
 typedef struct SChunk2AE60 {
-    /* 0x0 */ u32 unk0;
-    /* 0x4 */ u32 unk4;
+    u32 unk0;
+    u32 unk4;
 } SChunk2AE60;
 
 typedef struct SHeap2AE60 {
-    /* 0x0 */ u32 unk0;
-    /* 0x4 */ SChunk2AE60 *unk4;
-    /* 0x8 */ SChunk2AE60 *unk8;
+    u32 unk0;
+    SChunk2AE60 *unk4;
+    SChunk2AE60 *unk8;
 } SHeap2AE60;
 
 u32 heap_alloc_core(s32 arg0, SHeap2AE60 *arg1) {

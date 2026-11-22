@@ -1,20 +1,54 @@
-/* machine draft (m2c) for gcc-2.7.2-kmc -O0 -G0 -mips3 -mgp32 -mfp32, tried by autopilot */
-#ifndef M2C_DEFINES
-#define M2C_DEFINES
-typedef s32 M2C_UNK;
-typedef s8 M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define M2C_ERROR(desc) (0)
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-#endif
+/* identical to func_8002C5B0 (matched), with its names changed by decompdecomp */
+extern void func_80071680(void *);
+extern s32 func_80080310(void *, s32, s32);
+extern s32 func_800801A0(void *, void *, s32);
+extern s32 func_8006E9CC(void *, void *, s32);
+extern void heap_free(void *);
+extern s32 D_80110C58[];
+extern s32 D_80300338[];
+extern s32 D_803006F0[];
 
-M2C_UNK func_80071680(M2C_UNK *);                   /* extern */
-extern M2C_UNK D_80110C58;
+typedef struct S8002C5E0 {
+    /* 0x00 */ void *unk0;
+    /* 0x04 */ u8 pad4[4];
+    /* 0x08 */ void *unk8;
+    /* 0x0C */ u8 padC[4];
+    /* 0x10 */ void *unk10;
+    /* 0x14 */ u8 pad14[4];
+    /* 0x18 */ void *unk18;
+} S8002C5E0;
 
 void func_80071874(void) {
     func_80071680(&D_80110C58);
+}
+
+void func_8002C5E0(S8002C5E0 *arg0) {
+    if (arg0->unk18 != NULL) {
+        heap_free(arg0->unk18);
+    }
+    if (arg0->unk8 != NULL) {
+        heap_free(arg0->unk8);
+    }
+    if (arg0->unk10 != NULL) {
+        heap_free(arg0->unk10);
+    }
+    if (arg0->unk0 != NULL) {
+        heap_free(arg0->unk0);
+    }
+    heap_free(arg0);
+}
+
+s32 func_8002C544(void) {
+    s32 sp10;
+
+    sp10 = 0;
+    while (func_80080310(&D_80300338, 0, 0) != -1) {
+        sp10 += 1;
+    }
+    return sp10;
+}
+
+void func_8002C4F0(void) {
+    func_800801A0(&D_80300338, &D_803006F0, 0xA);
+    func_8006E9CC(&D_80110C58, &D_80300338, 1);
 }

@@ -1,6 +1,7 @@
 s32 func_80038994(s32, s32);
 
-s32 func_80040A1C(s32 arg0, s32 arg1) {
+s32 func_80040A1C(s32 arg0, s32 arg1)
+{
     register s32 s0;
 
     s0 = 0;
@@ -10,14 +11,27 @@ s32 func_80040A1C(s32 arg0, s32 arg1) {
     return s0;
 }
 
+extern u8 D_80096BE0[];
+extern u8 D_80096DAC[];
+extern u8 D_80096DEC[];
+
+void func_8003DD44(void *, s32, s32, s32, s32, s32, s32, s32, s32, s32, s32, void *, void *, s32, s32, s32, s32, s32);
+
+void func_8003E708(s32 arg0, s32 arg1, s32 arg2)
+{
+    func_8003DD44(D_80096BE0, 0, (s16)arg0, (s16)arg1, 0x10, 0x10, 1, 0, 6, 0, 0,
+                  D_80096DAC, D_80096DEC, 0xFF, arg2, 6, 1, 0xFFFF);
+}
+
 typedef struct SNode3E678 {
-    /* 0x00 */ u8 pad0[0x30];
-    /* 0x30 */ struct SNode3E678 *unk30;
-    /* 0x34 */ u8 pad34[0x14];
-    /* 0x48 */ u8 unk48;
+    u8 pad0[0x30];
+    struct SNode3E678 *unk30;
+    u8 pad34[0x14];
+    u8 unk48;
 } SNode3E678;
 
-s32 func_8003E678(SNode3E678 **arg0, u8 arg1) {
+s32 func_8003E678(SNode3E678 **arg0, u8 arg1)
+{
     SNode3E678 *sp4;
 
     sp4 = *arg0;
@@ -30,19 +44,4 @@ s32 func_8003E678(SNode3E678 **arg0, u8 arg1) {
         }
     } while ((sp4 = sp4->unk30) != NULL);
     return 0;
-}
-
-extern s32 D_80324E88;
-extern u8 D_80324E90[];
-extern u8 D_80324EC0[];
-extern s8 D_80325130;
-
-void func_80089494(void *, void *, s32);
-
-void func_8003DAC8(void) {
-    if (D_80324E88 >= 0xF) {
-        func_80089494(D_80324E90, D_80324EC0, 0x2A0);
-        D_80325130 = 0;
-        D_80324E88--;
-    }
 }

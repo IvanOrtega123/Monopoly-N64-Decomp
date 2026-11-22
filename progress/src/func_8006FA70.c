@@ -1,17 +1,18 @@
 typedef struct S6FA70Msg {
-    /* 0x00 */ u16 unk0;
-    /* 0x02 */ s8 unk2;
-    /* 0x04 */ void *unk4;
-    /* 0x08 */ s32 unk8;
-    /* 0x0C */ s32 unkC;
-    /* 0x10 */ u32 unk10;
+    u16 unk0;
+    s8 unk2;
+    u8 pad3;
+    void *unk4;
+    s32 unk8;
+    s32 unkC;
+    u32 unk10;
 } S6FA70Msg;
 
-void func_800801A0(void *, void *, s32);
+void func_800801A0(void *, s32 *, s32);
 void func_8007E3D0(s32, u32);
-void func_8007A100(s32, void *, s32);
-void func_80080310(void *, void *, s32);
-extern s32 D_803255DC;
+void func_8007A100(void *, void *, s32);
+void func_80080310(void *, s32 *, s32);
+extern void *D_803255DC;
 
 void func_8006FA70(s32 arg0, s32 arg1, u32 arg2) {
     S6FA70Msg msg;

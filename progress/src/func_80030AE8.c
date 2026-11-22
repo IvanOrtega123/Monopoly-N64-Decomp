@@ -1,6 +1,6 @@
-void func_800306DC(s32, f32 *);
 f32 func_8007FB20(f32);
 f32 func_8007EB30(f32);
+void func_800306DC(s32, f32 *);
 
 extern f32 D_800921B4;
 

@@ -1,7 +1,8 @@
-s32 func_80060738(s32, s32, s32);
-s32 func_8006149C(s32, s32, s32);
 extern s32 D_8009675C;
 extern u8 D_80097785;
+
+s32 func_80060738(s32, s32, s32);
+s32 func_8006149C(s32, s32, s32);
 
 s32 func_8005E664(s32 arg0, STurnRec5E664 *arg1, u8 arg2) {
     s32 sp14;

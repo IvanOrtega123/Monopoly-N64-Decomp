@@ -1,6 +1,6 @@
 u8 func_8006CD60(s32);
-void func_80069F98(s32, s32, s32, s32, u8);
 void func_8006AA48(s32);
+void func_80069F98(s32, s32, s32, s32, s32);
 
 void func_8006A928(u8 arg0) {
     s32 sp1C;

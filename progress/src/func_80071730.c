@@ -1,16 +1,16 @@
-extern u8 D_802AFAA0[];
-extern u8 D_802AC970[];
-extern u8 D_80357280[];
-extern u8 D_802AC974[];
-extern u8 D_80110C58[];
+extern void func_80071BF4(void);
+extern s32 func_80071580(s32 *);
+extern void func_80071C40(void);
+extern s32 func_800801A0(void *, void *, s32);
+
 extern u16 D_80300198[4][2];
 extern u8 D_8030019B[4][4];
 extern s32 D_80303ABC;
-
-void func_80071BF4(void);
-void func_800801A0(void *, void *, s32);
-void func_80071580(void *);
-void func_80071C40(void);
+extern u8 D_802AC970;
+extern u8 D_802AC974;
+extern u8 D_802AFAA0;
+extern u8 D_80357280;
+extern s32 D_80110C58;
 
 u8 func_80071730(void) {
     s32 sp10;
@@ -18,9 +18,9 @@ u8 func_80071730(void) {
     u8 sp15;
 
     func_80071BF4();
-    func_800801A0(D_802AFAA0, D_802AC970, 1);
-    func_800801A0(D_80357280, D_802AC974, 1);
-    func_80071580(D_80110C58);
+    func_800801A0(&D_802AFAA0, &D_802AC970, 1);
+    func_800801A0(&D_80357280, &D_802AC974, 1);
+    func_80071580(&D_80110C58);
     func_80071C40();
     D_80303ABC = 0;
     sp15 = 1;
